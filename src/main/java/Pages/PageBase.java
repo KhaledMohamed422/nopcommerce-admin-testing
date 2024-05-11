@@ -1,6 +1,7 @@
 package Pages;
 
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -13,6 +14,7 @@ public class PageBase {
     public Select select;
     public Actions act;
     WebDriverWait wait;
+    JavascriptExecutor executor;
     public PageBase(WebDriver driver)
     {
         PageFactory.initElements(driver,this);

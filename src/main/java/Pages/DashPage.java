@@ -8,10 +8,15 @@ import java.time.Duration;
 
 public class DashPage extends PageBase {
     @FindBy(css = "li.has-treeview:nth-child(3) > a:nth-child(1)")
-    private WebElement sales_group;
+    WebElement sales_group;
 
     @FindBy(xpath = "//a[@href='/Admin/Order/List']")
-    private  WebElement Orders;
+    WebElement Orders;
+
+    @FindBy(xpath = "//a[@href='/Admin/Order/ShipmentList']")
+    WebElement Shipments;
+
+
 
     private void Collapse_group(WebElement list_group) {
         list_group.click();
@@ -25,5 +30,10 @@ public class DashPage extends PageBase {
     public void Open_ordersPage() {
         Collapse_group(sales_group);
         Orders.click();
+    }
+
+    public void Open_shipmentsPage() {
+        Collapse_group(sales_group);
+        Shipments.click();
     }
 }
