@@ -34,7 +34,12 @@ public class ShipmentDetailPage extends PageBase {
     }
 
     public void DeleteShipment() {
-        executor.executeScript("arguments[0].click();", delete_btn);
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        delete_btn.click();
 
         wait.until(ExpectedConditions.elementToBeClickable(delete_btn_confirmation));
         delete_btn_confirmation.click();

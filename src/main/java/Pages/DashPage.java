@@ -19,7 +19,11 @@ public class DashPage extends PageBase {
 
 
     private void Collapse_group(WebElement list_group) {
-        list_group.click();
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         list_group.click();
     }
 
