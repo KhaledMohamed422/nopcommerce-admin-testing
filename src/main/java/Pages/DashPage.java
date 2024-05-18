@@ -7,6 +7,10 @@ import org.openqa.selenium.support.FindBy;
 import java.time.Duration;
 
 public class DashPage extends PageBase {
+
+    @FindBy(css = "li.has-treeview:nth-child(2) > a:nth-child(1)")
+    WebElement catalog_group;
+
     @FindBy(css = "li.has-treeview:nth-child(3) > a:nth-child(1)")
     WebElement sales_group;
 
@@ -22,6 +26,11 @@ public class DashPage extends PageBase {
     @FindBy(xpath = "//a[@href='/Admin/Customer/List']")
     WebElement Customers;
 
+    @FindBy(xpath = "//a[@href='/Admin/Product/List']")
+    WebElement Products;
+
+    @FindBy(xpath = "/html/body/div[3]/aside/div/div[4]/div/div/nav/ul/li[2]/ul/li[3]/a")
+    WebElement manufacturer;
 
     private void Collapse_group(WebElement list_group) {
         try {
@@ -50,4 +59,15 @@ public class DashPage extends PageBase {
         Collapse_group(customers_group);
         Customers.click();
     }
+
+    public void Open_productPage() {
+        Collapse_group(catalog_group);
+        Products.click();
+    }
+
+    public void Open_manufacturerPage() {
+        Collapse_group(catalog_group);
+        manufacturer.click();
+    }
+
 }

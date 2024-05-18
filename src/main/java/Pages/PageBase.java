@@ -17,6 +17,7 @@ public class PageBase {
     JavascriptExecutor executor;
     public PageBase(WebDriver driver)
     {
+        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 

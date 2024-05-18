@@ -28,16 +28,17 @@ public class TestBase {
     {
         // ChromeOptions options=new ChromeOptions();
         // options.addArguments("--remote-allow-origins=*");
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://admin-demo.nopcommerce.com/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }
     @AfterClass
     public void closeUrl()
     {
         driver.quit();
     }
+
     @AfterMethod
     public void take_screenShot(ITestResult result) throws IOException {
         if(ITestResult.FAILURE == result.getStatus())
@@ -49,4 +50,6 @@ public class TestBase {
             FileUtils.copyFile(photo,new File("./screenshots/"+result.getName()+".png"));
         }
     }
+
+
 }
